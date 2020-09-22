@@ -1,7 +1,7 @@
 {
     "Comment": "Creating Alias resource record sets in Route 53",
     "Changes": [{
-               "Action": "UPDATE",
+               "Action": "UPSERT",
                "ResourceRecordSet": {
                            "Name": "{{RECORD_PREFIX}}.quantiaconsulting.com",
                            "Type": "A",
