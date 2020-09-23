@@ -1,15 +1,14 @@
 {
     "Comment": "Creating Alias resource record sets in Route 53",
     "Changes": [{
-               "Action": "UPSERT",
-               "ResourceRecordSet": {
-                           "Name": "edu-{{RECORD_PREFIX}}.quantiaconsulting.com",
-                           "Type": "A",
-                           "TTL": 60,
-                           "AliasTarget":{
-                                   "HostedZoneId": "{{ELB_HOSTED_ZONE_ID}}",
-                                   "DNSName": "dualstack.{{TARGET_ELB}}",
-                                   "EvaluateTargetHealth": true
-                             }}
-                         }]
+                "Action": "UPSERT",
+                "ResourceRecordSet": {
+                            "Name": "edu-{{RECORD_PREFIX}}.quantiaconsulting.com",
+                            "Type": "A",
+                            "AliasTarget":{
+                                    "HostedZoneId": "{{ELB_HOSTED_ZONE_ID}}",
+                                    "DNSName": "dualstack.{{TARGET_ELB}}",
+                                    "EvaluateTargetHealth": true
+                                }}
+                        }]
 }
