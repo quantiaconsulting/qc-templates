@@ -138,7 +138,7 @@ spec:
     spec:
       serviceAccountName: cluster-autoscaler
       containers:
-        - image: k8s.gcr.io/autoscaling/cluster-autoscaler:v1.17.3
+        - image: {{IMAGE}}
           name: cluster-autoscaler
           resources:
             limits:
@@ -151,15 +151,15 @@ spec:
             - ./cluster-autoscaler
             - --v=4
             - --stderrthreshold=info
-            - --cloud-provider=aws
+            - --cloud-provider={{CLOUD_PROVIDER}}
             - --skip-nodes-with-local-storage=false
-            - --nodes=1:10:k8s-worker-asg-1
+            - --nodes={{MIN_NODES}}:{{MAX_NODES}}:{{GROUP_NAME}}
           volumeMounts:
             - name: ssl-certs
-              mountPath: /etc/ssl/certs/ca-certificates.crt #/etc/ssl/certs/ca-bundle.crt for Amazon Linux Worker Nodes
+              mountPath: {{SSL_CERT_PATH}}
               readOnly: true
           imagePullPolicy: "Always"
       volumes:
         - name: ssl-certs
           hostPath:
-            path: "/etc/ssl/certs/ca-bundle.crt"
+            path: {{SSL_CERT_PATH}}
