@@ -1,0 +1,49 @@
+aws:
+    access:
+        key: AKIAXH7JU6RNMFM23HUM
+        secret: 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
+
+spark:
+    additional-jars: "org.apache.hadoop:hadoop-aws:3.2.0
+                    ,org.postgresql:postgresql:42.2.18
+                    ,org.apache.spark:spark-avro_2.12:3.0.1
+                    ,org.apache.spark:spark-streaming-kafka-0-10_2.11:2.4.5
+                    ,org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.1
+                    ,org.apache.kafka:kafka-clients:2.6.0
+                    ,com.databricks:spark-xml_2.12:0.12.0"
+                    
+data:
+    spark:
+        base-uri: "s3a://quantia-master/training/"
+    python:
+        base-uri: "s3://quantia-master/training/"
+
+postgres:
+    url: qc-pg.c30roki0vo0h.eu-west-1.rds.amazonaws.com
+    port: 5432
+    usr: qcro
+    pwd: qc-readonly
+    driver:
+        version: 42.2.10
+    
+kafka:
+    #local
+    # zookeper: "zookeeper:2181"
+    #k8s
+    zookeper: "cp-cp-zookeeper.cp:2181"
+    #local
+    #server: kafka
+    #k8s
+    server: cp-cp-kafka.cp
+    
+    port: 9092
+    access:
+        key: 
+        secret: 
+    schema_registry:
+        #local
+        #url: http://schema-registry:8081
+        #k8s
+        url: http://cp-cp-schema-registry.cp:8081
+        key: 
+        secret:
