@@ -19,7 +19,7 @@ services:
       - GRANT_SUDO=yes 
       - JUPYTER_ENABLE_LAB=yes
       - JUPYTER_TOKEN=quantia-hare
-      - GITHUB_REPO=https://qc-admin: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@github.com/quantiaconsulting/data-track.git
+      - GITHUB_REPO=https://github.com/quantiaconsulting/data-track.git
       - GITHUB_BRANCH=general-dev
       - JUPYTERHUB_USER=admin.local
       - MODE=local
